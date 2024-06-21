@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Processos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets --> 
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+    <div class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo"><a href="index.html"><img src="images/logo.png" width="150"></a></div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#sobre-mim">Sobre Mim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#feedback">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contate-nos">Contate-nos</a>
+                        </li>
+                        <li class="nav-item" id="additionalMenu1" style="display: none;">
+                            <a class="nav-link" href="cadastroProcesso.html">Cadastro de processo</a>
+                        </li>
+                        <li class="nav-item" id="additionalMenu2" style="display: none;">
+                            <a class="nav-link" href="cadastroDeEvento.html">Cadastro de evento</a>
+                        </li>
+                        <li class="nav-item" id="loginNavItem">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login/Cadastre-se</a>
+                        </li>
+                        <li class="nav-item" id="logoutNavItem" style="display: none;">
+                            <a class="nav-link" href="#" id="logoutButton">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="about_section layout_padding" id="sobre-mim">
+        <h2>Meus Processos</h2>
+        <ul id="processList" class="list-group"></ul>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginCPF">CPF</label>
+                            <input type="text" class="form-control" id="loginCPF" placeholder="Digite seu CPF" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Senha</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerCPF">CPF</label>
+                            <input type="text" class="form-control" id="registerCPF" placeholder="Digite seu CPF" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Senha</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Digite sua senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirme a Senha</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirme sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // Função para filtrar processos do usuário logado
+        function filterUserProcesses() {
+            const currentUserName = localStorage.getItem('currentUser');
+            const processes = JSON.parse(localStorage.getItem('processes')) || [];
+            return processes.filter(process => process.userName === currentUserName);
+        }
+
+        // Função para exibir processos do usuário logado
+        function displayUserProcesses() {
+            const processList = document.getElementById('processList');
+            processList.innerHTML = '';
+
+            const userProcesses = filterUserProcesses();
+            userProcesses.forEach((process, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = `
+                    <strong>Nome:</strong> ${process.userName}<br>
+                    <strong>Número:</strong> ${process.number}<br>
+                    <strong>Data:</strong> ${process.date}<br>
+                    <strong>Descrição:</strong> ${process.description}
+                    <button class="btn btn-danger btn-sm float-right" onclick="deleteProcess(${index})">Excluir</button>
+                `;
+                processList.appendChild(li);
+            });
+        }
+
+        // Função para excluir processo
+        function deleteProcess(index) {
+            const userProcesses = filterUserProcesses();
+            userProcesses.splice(index, 1);
+            localStorage.setItem('processes', JSON.stringify(userProcesses));
+            displayUserProcesses();
+        }
+
+        // Ao carregar a página, verificar se o usuário está logado e exibir seus processos
+        document.addEventListener('DOMContentLoaded', function() {
+            if (checkLoginStatus()) {
+                displayUserProcesses();
+            } else {
+                alert('Você precisa estar logado para acessar esta página.');
+                window.location.href = 'index.html'; // Redireciona para página inicial se não estiver logado
+            }
+        });
+
+        // Função para verificar o status do login
+        function checkLoginStatus() {
+            return !!localStorage.getItem('currentUser'); // Verifica se há um usuário logado
+        }
+
+        // Capturar evento de submit no formulário de cadastro
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cpf = document.getElementById('registerCPF').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem.');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.cpf === cpf);
+
+            if (userExists) {
+                alert('Usuário já cadastrado.');
+                return;
+            }
+
+            users.push({ cpf, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Cadastro realizado com sucesso!');
+            $('#registerModal').modal('hide');
+        });
+
+        // Capturar evento de submit no formulário de login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cpf = document.getElementById('loginCPF').value;
+            const password = document.getElementById('loginPassword').value;
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.cpf === cpf && user.password === password);
+
+            if (user) {
+                localStorage.setItem('currentUser', user.name); // Definir o nome do usuário logado
+                alert('Login realizado com sucesso!');
+                $('#loginModal').modal('hide');
+                document.getElementById('logoutNavItem').style.display = 'block';
+                document.getElementById('loginNavItem').style.display = 'none';
+
+                if (cpf === '36544554090') {
+                    document.getElementById('additionalMenu1').style.display = 'block';
+                    document.getElementById('additionalMenu2').style.display = 'block';
+                }
+                displayUserProcesses(); // Atualizar a exibição dos processos do usuário
+            } else {
+                alert('CPF ou senha incorretos.');
+            }
+        });
+
+        // Capturar evento de clique no botão de logout
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('currentUser'); // Remover o nome do usuário logado
+            alert('Logout realizado com sucesso!');
+            document.getElementById('logoutNavItem').style.display = 'none';
+            document.getElementById('loginNavItem').style.display = 'block';
+            document.getElementById('additionalMenu1').style.display = 'none';
+            document.getElementById('additionalMenu2').style.display = 'none';
+            document.getElementById('processList').innerHTML = ''; // Limpar a lista de processos ao fazer logout
+        });
+
+        // Verificar se há um usuário logado ao carregar a página
+        window.addEventListener('load', function() {
+            const currentUserName = localStorage.getItem('currentUser');
+            if (currentUserName) {
+                document.getElementById('logoutNavItem').style.display = 'block';
+                document.getElementById('loginNavItem').style.display = 'none';
+
+                // Exibir menus adicionais se o usuário for administrador
+                if (currentUserName === 'Nome do Administrador') {
+                    document.getElementById('additionalMenu1').style.display = 'block';
+                    document.getElementById('additionalMenu2').style.display = 'block';
+                }
+
+                displayUserProcesses(); // Atualizar a exibição dos processos do usuário
+            }
+        });
+    </script>
+</body>
+</html>

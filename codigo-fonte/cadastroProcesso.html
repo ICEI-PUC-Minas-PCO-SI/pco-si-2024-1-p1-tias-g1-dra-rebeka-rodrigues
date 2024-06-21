@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Processos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets --> 
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+    <div class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="logo"><a href="index.html"><img src="images/logo.png" width="150"></a></div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#sobre-mim">Sobre Mim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#feedback">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contate-nos">Contate-nos</a>
+                        </li>
+                        <li class="nav-item" id="additionalMenu1" style="display: none;">
+                            <a class="nav-link" href="cadastroProcesso.html">Cadastro de processo</a>
+                        </li>
+                        <li class="nav-item" id="additionalMenu2" style="display: none;">
+                            <a class="nav-link" href="cadastroDeEvento.html">Cadastro de evento</a>
+                        </li>
+                        <li class="nav-item" id="loginNavItem">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login/Cadastre-se</a>
+                        </li>
+                        <li class="nav-item" id="logoutNavItem" style="display: none;">
+                            <a class="nav-link" href="#" id="logoutButton">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="about_section layout_padding" id="sobre-mim">
+        <h2>Cadastro de Processo</h2>
+        <form id="processForm">
+            <div class="form-group">
+                <label for="clientCPF">CPF do Cliente</label>
+                <input type="text" class="form-control" id="clientCPF" placeholder="Digite o CPF do cliente" required>
+            </div>
+            <div class="form-group">
+                <label for="processNumber">Número do Processo</label>
+                <input type="text" class="form-control" id="processNumber" placeholder="Digite o número do processo" required>
+            </div>
+            <div class="form-group">
+                <label for="processDate">Data do Processo</label>
+                <input type="date" class="form-control" id="processDate" required>
+            </div>
+            <div class="form-group">
+                <label for="processDescription">Descrição do Processo</label>
+                <textarea class="form-control" id="processDescription" rows="3" placeholder="Digite a descrição do processo" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar Processo</button>
+        </form>
+
+        <h2 class="mt-5">Processos Cadastrados</h2>
+        <ul id="processList" class="list-group"></ul>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginCPF">CPF</label>
+                            <input type="text" class="form-control" id="loginCPF" placeholder="Digite seu CPF" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Senha</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerCPF">CPF</label>
+                            <input type="text" class="form-control" id="registerCPF" placeholder="Digite seu CPF" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Senha</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Digite sua senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirme a Senha</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirme sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript para manipulação do menu e formulário de processos
+
+        // Evento de cadastro de processo
+        document.getElementById('processForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const clientCPF = document.getElementById('clientCPF').value;
+            const processNumber = document.getElementById('processNumber').value;
+            const processDate = document.getElementById('processDate').value;
+            const processDescription = document.getElementById('processDescription').value;
+
+            const newProcess = {
+                cpf: clientCPF,
+                number: processNumber,
+                date: processDate,
+                description: processDescription
+            };
+
+            let processes = JSON.parse(localStorage.getItem('processes')) || [];
+            processes.push(newProcess);
+            localStorage.setItem('processes', JSON.stringify(processes));
+
+            document.getElementById('processForm').reset();
+
+            displayProcesses();
+        });
+
+        // Função para exibir processos cadastrados
+        function displayProcesses() {
+            const processList = document.getElementById('processList');
+            processList.innerHTML = '';
+
+            let processes = JSON.parse(localStorage.getItem('processes')) || [];
+            processes.forEach((process, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = `
+                    <strong>CPF:</strong> ${process.cpf}<br>
+                    <strong>Número:</strong> ${process.number}<br>
+                    <strong>Data:</strong> ${process.date}<br>
+                    <strong>Descrição:</strong> ${process.description}
+                    <button class="btn btn-danger btn-sm float-right" onclick="deleteProcess(${index})">Excluir</button>
+                `;
+                processList.appendChild(li);
+            });
+        }
+
+        // Função para excluir processo
+        function deleteProcess(index) {
+            let processes = JSON.parse(localStorage.getItem('processes')) || [];
+            processes.splice(index, 1);
+            localStorage.setItem('processes', JSON.stringify(processes));
+            displayProcesses();
+        }
+
+        // Atualiza a exibição dos processos ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProcesses();
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cpf = document.getElementById('registerCPF').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem.');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.cpf === cpf);
+
+            if (userExists) {
+                alert('Usuário já cadastrado.');
+                return;
+            }
+
+            users.push({ cpf, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Cadastro realizado com sucesso!');
+            $('#registerModal').modal('hide');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cpf = document.getElementById('loginCPF').value;
+            const password = document.getElementById('loginPassword').value;
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.cpf === cpf && user.password === password);
+
+            if (user) {
+                localStorage.setItem('loggedInUser', cpf);
+                alert('Login realizado com sucesso!');
+                $('#loginModal').modal('hide');
+                document.getElementById('logoutNavItem').style.display = 'block';
+                document.getElementById('loginNavItem').style.display = 'none';
+
+                if (cpf === '36544554090') {
+                    document.getElementById('additionalMenu1').style.display = 'block';
+                    document.getElementById('additionalMenu2').style.display = 'block';
+                }
+            } else {
+                alert('CPF ou senha incorretos.');
+            }
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('loggedInUser');
+            alert('Logout realizado com sucesso!');
+            document.getElementById('logoutNavItem').style.display = 'none';
+            document.getElementById('loginNavItem').style.display = 'block';
+            document.getElementById('additionalMenu1').style.display = 'none';
+            document.getElementById('additionalMenu2').style.display = 'none';
+        });
+
+        window.addEventListener('load', function() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                document.getElementById('logoutNavItem').style.display = 'block';
+                document.getElementById('loginNavItem').style.display = 'none';
+
+                if (loggedInUser === '36544554090') {
+                    document.getElementById('additionalMenu1').style.display = 'block';
+                    document.getElementById('additionalMenu2').style.display = 'block';
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
